@@ -13,7 +13,11 @@ import java.util.Scanner;
 public class Gestor {
     Scanner sc = new Scanner(System.in);
     
-    private ArrayList<Cliente> clientes;
+    private ArrayList<Cliente> clientes = new ArrayList<>();
+
+    public ArrayList<Cliente> getClientes() {
+        return clientes;
+    }
     
     public void crearCliente (String nombre, String apellidos, String direccion,
             String nif, int telefono, int edad){

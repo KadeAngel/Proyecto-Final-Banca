@@ -46,12 +46,16 @@ public class Cuenta {
     public int getLimitePagoInternet() {
         return limitePagoInternet;
     }
-
+    
+    public String getFechaApertura() {
+        return fechaApertura;
+    }
+    
     public int getTotalCompras() {
         return totalCompras;
     }
 
     public void setTotalCompras(int totalCompras) {
         this.totalCompras = totalCompras;
-    }   
+    }
 }
