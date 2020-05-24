@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Kade
+ * @author Angel Garcia 1ºDAM B
  */
 public class Cliente {
     
