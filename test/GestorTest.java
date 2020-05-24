@@ -1,19 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 import Banca.Gestor;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 /**
  *
- * @author Kade
+ * @author Angel Garcia 1DAM B
  */
 public class GestorTest {
     private static Gestor gestor = new Gestor();
+
+    /**
+     * Se testea el funcionamiento y encaminamiento del metodo crearCliente()
+     */
     @Test
     public void crearClienteTest() {
         gestor.crearCliente("Angel", "Garcia", "Calle falsa", "1234W", 
@@ -26,6 +24,10 @@ public class GestorTest {
         assertTrue(gestor.getClientes().get(0).getTelefono() == 12345);
         assertTrue(gestor.getClientes().get(0).getEdad() == 50);
     }
+
+    /**
+     * Se testea el funcionamiento y encaminamiento del metodo modificarCliente()
+     */
     @Test
     public void modificarClienteTest() {
         gestor.modificarCliente("1234W", "5678W", "Pepe", "Perez", 
