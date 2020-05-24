@@ -14,57 +14,23 @@ public class Gestor {
     Scanner sc = new Scanner(System.in);
     
     private ArrayList<Cliente> clientes;
-    private String nombreCliente;
-    private String apellidosCliente;
-    private String direccionCliente;
-    private String nifCliente;
-    private int telefonoCliente;
-    private int edadCliente;
     
-    public void crearCliente (){
-        System.out.println("Introduce el nombre del cliente:");
-        nombreCliente = sc.nextLine();
-        System.out.println("Introduce los apellidos del cliente:");
-        apellidosCliente = sc.nextLine();
-        System.out.println("Introduce la dirección del cliente:");
-        direccionCliente = sc.nextLine();
-        System.out.println("Introduce el NIF del cliente:");
-        nifCliente = sc.nextLine();
-        System.out.println("Introduce el telefono del cliente:");
-        telefonoCliente = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Introduce la edad del cliente:");
-        edadCliente = sc.nextInt();
-        sc.nextLine();
-        clientes.add(new Cliente(nombreCliente, apellidosCliente, 
-                direccionCliente, nifCliente, telefonoCliente, edadCliente));
+    public void crearCliente (String nombre, String apellidos, String direccion,
+            String nif, int telefono, int edad){
+        clientes.add(new Cliente(nombre, apellidos, 
+                direccion, nif, telefono, edad));
     }
     
-    public void modificarCliente() {
-        System.out.println("Introduce el nif del cliente a modificar:");
-        nifCliente = sc.nextLine();
+    public void modificarCliente(String nif, String nif2, String nombre, 
+            String apellidos, String direccion, int telefono, int edad) {
         for (int i = 0; i < clientes.size(); i++) {
-            if (clientes.get(i).getNif() == nifCliente) {
-                System.out.println("Introduce el nombre del cliente:");
-                nombreCliente = sc.nextLine();
-                clientes.get(i).setNombre(nombreCliente);
-                System.out.println("Introduce los apellidos del cliente:");
-                apellidosCliente = sc.nextLine();
-                clientes.get(i).setApellidos(apellidosCliente);
-                System.out.println("Introduce la dirección del cliente:");
-                direccionCliente = sc.nextLine();
-                clientes.get(i).setDireccion(direccionCliente);
-                System.out.println("Introduce el NIF del cliente:");
-                nifCliente = sc.nextLine();
-                clientes.get(i).setNif(nifCliente);
-                System.out.println("Introduce el telefono del cliente:");
-                telefonoCliente = sc.nextInt();
-                sc.nextLine();
-                clientes.get(i).setTelefono(telefonoCliente);
-                System.out.println("Introduce la edad del cliente:");
-                edadCliente = sc.nextInt();
-                sc.nextLine();
-                clientes.get(i).setEdad(edadCliente);
+            if (clientes.get(i).getNif().equals(nif)) {
+                clientes.get(i).setNombre(nombre);
+                clientes.get(i).setApellidos(apellidos);
+                clientes.get(i).setDireccion(direccion);
+                clientes.get(i).setNif(nif2);
+                clientes.get(i).setTelefono(telefono);
+                clientes.get(i).setEdad(edad);
             }
         }
     }

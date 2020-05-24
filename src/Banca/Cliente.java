@@ -63,103 +63,47 @@ public class Cliente {
         this.edad = edad;
     }
     
-    public void crearCuenta() {
-        System.out.println("Introduce el numero de cuenta de la nueva cuenta");
-        int numCuentaAux = sc.nextInt();
-        sc.nextInt();
-        System.out.println("Introduce el saldo que vas a ingresar en la cuenta"
-                + " ahora:");
-        int saldoAux = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Introduce el limite de retirada de dinero en"
-                + " cajero");
-        int limiteRetiradaCajeroAux = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Introduce el limite de compra online:");
-        int limitePagoInternetAux = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Introduce la fecha de hoy:");
-        String fechaAperturaAux = sc.nextLine();
-        cuentas.add(new Cuenta(numCuentaAux, saldoAux, limiteRetiradaCajeroAux,
-                    limitePagoInternetAux, fechaAperturaAux));
+    public void crearCuenta(int numCuenta, int saldo, int limiteRetiradaCajero, 
+            int limitePagoInternet, String fechaApertura) {
+        cuentas.add(new Cuenta(numCuenta, saldo, limiteRetiradaCajero,
+                    limitePagoInternet, fechaApertura));
     }
     
-    public void ingresar() {
-        System.out.println("Introduce el numero de cuenta a ingresar dinero");
-        int numCuentaAux = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Introduce la cantidad que vas a ingresar:");
-        int saldoAux = sc.nextInt();
-        sc.nextLine();
+    public void ingresar(int numCuenta, int saldo) {
         for (int i = 0; i < cuentas.size(); i++) {
-            if (cuentas.get(i).getNumCuenta() == numCuentaAux) {
-                cuentas.get(i).setSaldo(cuentas.get(i).getSaldo() + saldoAux);
+            if (cuentas.get(i).getNumCuenta() == numCuenta) {
+                cuentas.get(i).setSaldo(cuentas.get(i).getSaldo() + saldo);
             }
         }
     }   
     
-    public void sacarDinero() {
-        System.out.println("Introduce el numero de cuenta de la que deseas"
-                + " sacar dinero:");
-        int numCuentaAux = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Introduce la cantidad de dinero a sacar:");
-        int retirada = sc.nextInt();
-        sc.nextLine();
+    public void sacarDinero(int numCuenta, int retirada) {
         for (int i = 0; i < cuentas.size(); i++) {
-            if (cuentas.get(i).getNumCuenta() == numCuentaAux &&
+            if (cuentas.get(i).getNumCuenta() == numCuenta &&
                     (cuentas.get(i).getSaldo() - retirada) > 0 &&
-                    cuentas.get(i).getLimiteRetiradaCajero() > retirada) {
+                    cuentas.get(i).getLimiteRetiradaCajero() >= retirada) {
                 cuentas.get(i).setSaldo(cuentas.get(i).getSaldo() - retirada);
-            } else if (cuentas.get(i).getNumCuenta() == numCuentaAux &&
-                    (cuentas.get(i).getSaldo() - retirada) <= 0){
-                System.out.println("No tienes suficiente saldo.");
-            } else if (cuentas.get(i).getNumCuenta() == numCuentaAux &&
-                    cuentas.get(i).getLimiteRetiradaCajero() < retirada) {
-                System.out.println("No puede retirar una cantidad superior"
-                        + " al lÃƒÂ­mite de retirada de dinero de su cuenta.");
             }
         }
     }
     
-    public void pagoInternet() {
-        System.out.println("Introduce el numero de cuenta de la que deseas"
-                + " sacar dinero:");
-        int numCuentaAux = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Introduce el valor de la compra:");
-        int valorCompra = sc.nextInt();
-        sc.nextLine();
+    public void pagoInternet(int numCuenta, int valorCompra) {
         for (int i = 0; i < cuentas.size(); i++) {
-            if (cuentas.get(i).getNumCuenta() == numCuentaAux &&
+            if (cuentas.get(i).getNumCuenta() == numCuenta &&
                     (cuentas.get(i).getSaldo() - valorCompra) > 0 &&
                     cuentas.get(i).getLimiteRetiradaCajero() > valorCompra) {
                 cuentas.get(i).setSaldo(cuentas.get(i).getSaldo() - valorCompra);
                 cuentas.get(i).setTotalCompras(cuentas.get(i).getTotalCompras()
                         + valorCompra);
-            } else if (cuentas.get(i).getNumCuenta() == numCuentaAux &&
-                    (cuentas.get(i).getSaldo() - valorCompra) <= 0){
-                System.out.println("No tienes suficiente saldo.");
-            } else if (cuentas.get(i).getNumCuenta() == numCuentaAux &&
-                    cuentas.get(i).getLimiteRetiradaCajero() < valorCompra) {
-                System.out.println("No puede retirar una cantidad superior"
-                        + " al lÃƒÂ­mite de retirada de dinero de su cuenta.");
             }
         }
     }
     
-    public void TotalPagosInternet() {
-        System.out.println("Introduce el numero de cuenta del que deseas "
-                + "comprobar el total de pagos realizados con tarjeta:");
-        int numCuentaAux = sc.nextInt();
-        sc.nextLine();
+    public void TotalPagosInternet(int numCuenta) {
         for (int i = 0; i < cuentas.size(); i++) {
-            if (cuentas.get(i).getNumCuenta() == numCuentaAux) {
-                System.out.println("El total de pagos realizados con la "
-                        + "tarjeta de esta cuenta es de: " + 
-                        cuentas.get(i).getTotalCompras());
+            if (cuentas.get(i).getNumCuenta() == numCuenta) { 
+                cuentas.get(i).getTotalCompras();
             }
-        }
-        
+        } 
     }
 }
