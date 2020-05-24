@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Angel Garcia 1ÂºDAM B
+ * @author Angel Garcia 1Ã‚ÂºDAM B
  */
 public class Cliente {
     
@@ -63,7 +63,7 @@ public class Cliente {
         this.edad = edad;
     }
     
-    public void nuevaCuenta() {
+    public void crearCuenta() {
         System.out.println("Introduce el numero de cuenta de la nueva cuenta");
         int numCuentaAux = sc.nextInt();
         sc.nextInt();
@@ -117,7 +117,7 @@ public class Cliente {
             } else if (cuentas.get(i).getNumCuenta() == numCuentaAux &&
                     cuentas.get(i).getLimiteRetiradaCajero() < retirada) {
                 System.out.println("No puede retirar una cantidad superior"
-                        + " al lÃ­mite de retirada de dinero de su cuenta.");
+                        + " al lÃƒÂ­mite de retirada de dinero de su cuenta.");
             }
         }
     }
@@ -143,7 +143,7 @@ public class Cliente {
             } else if (cuentas.get(i).getNumCuenta() == numCuentaAux &&
                     cuentas.get(i).getLimiteRetiradaCajero() < valorCompra) {
                 System.out.println("No puede retirar una cantidad superior"
-                        + " al lÃ­mite de retirada de dinero de su cuenta.");
+                        + " al lÃƒÂ­mite de retirada de dinero de su cuenta.");
             }
         }
     }
